@@ -8,9 +8,9 @@
     "dependencies": {
         "@sap/audit-logging": "^5.1.0",
         "@sap/cds": "^5.6.2",
-        "@sap/hana-client": "^2.10.15",
         "@sap/xsenv": "^3.1.1",
         "@sap/xssec": "^3.2.10",
+        "cds-pg": "^0.1.22",
         "cds-routing-handlers": "^3.0.5",
         "express": "^4.17.1",
         "module-alias": "^2.2.2",
@@ -37,13 +37,12 @@
         "typescript": "^4.4.4"
     },
     "scripts": {
-        "start": "CDS_ENV=production NODE_ENV=production cds run",
+        "start": "node ./srv/server.js",
         "dev": "nodemon",
         "build": "mbt build",
-        "build:local": "npm-run-all build:db-local build:cds build:ts",
+        "build:local": "npm-run-all build:cds build:ts",
         "build:cds": "node ./scripts/convert-entities-to-ts",
         "build:ts": "tsc",
-        "build:db-local": "cds deploy --to sqlite:sqlite.db --no-save --with-mocks",
         "eslint:ci": "eslint --fix srv",
         "test": "jest --passWithNoTests --silent --runInBand",
         "test:unit": "npm test -- --watch -c jest-unit.config.js",

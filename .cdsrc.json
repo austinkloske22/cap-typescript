@@ -5,22 +5,14 @@
     "features": {
         "assert_integrity": false
     },
-    "hana": {
-        "deploy-format": "hdbtable"
-    },
-    "[production]": {
-        "requires": {
-            "db": {
-                "kind": "hana"
-            },
-            "uaa": {
-                "kind": "xsuaa"
-            }
-        }
-    },
     "requires": {
         "db": {
-            "kind": "sqlite"
+            "kind": "database"
+        },
+        "database": {
+            "dialect": "plain",
+            "impl": "cds-pg",
+            "model": ["srv"]
         }
     }
-} 
+}
