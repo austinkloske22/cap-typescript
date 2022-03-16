@@ -34,7 +34,8 @@
         "sqlite3": "^5.0.2",
         "supertest": "^6.1.6",
         "ts-jest": "^27.0.7",
-        "typescript": "^4.4.4"
+        "typescript": "^4.4.4",
+        "cds-dbm": "github:austinkloske22/cds-dbm#9a7751fcdc213a32a6f3fc2239ccace1168942de"
     },
     "scripts": {
         "start": "node ./srv/server.js",
@@ -48,6 +49,12 @@
         "test:unit": "npm test -- --watch -c jest-unit.config.js",
         "test:integration": "npm test -- --watch -c jest-integration.config.js",
         "test:staged": "npm test -- --findRelatedTests",
-        "test:ci": "npm test -- --coverage"
+        "test:ci": "npm test -- --coverage",
+        "docker:start:pg": "docker-compose -f docker-compose.yml up -d",
+        "deploy:pg": "node_modules/cds-dbm/dist/cli.js deploy --create-db",
+        "load:pg": "node_modules/cds-dbm/dist/cli.js load --via full",
+        "deploy:pg:load": "node_modules/cds-dbm/dist/cli.js deploy --load-via delta",
+        "build:dbm": "cd ./node_modules/cds-dbm && npm install && npm run build",
+        "permission:dbm": "sudo chmod 755 ./node_modules/cds-dbm/dist/cli.js "
     }
 }

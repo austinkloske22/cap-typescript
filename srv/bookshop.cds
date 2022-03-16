@@ -1,4 +1,4 @@
-using {bookshop} from '../db/cds/bookshop';
+using {bookshop} from '../db/bookshop';
 
 service BookshopService {
     @readonly

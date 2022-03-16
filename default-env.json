@@ -1,0 +1,20 @@
+{
+  "VCAP_SERVICES": {
+    "user-provided": [
+      {
+        "label": "user-provided",
+        "name": "cap-typescript-db",
+        "tags": ["relational", "database", "plain"],
+        "instance_name": "cap-typescript-db",
+        "credentials": {
+          "host": "localhost",
+          "port": "5432",
+          "database": "captypescript",
+          "user": "postgres",
+          "password": "postgres",
+          "schema": "public"
+        }
+      }
+    ]
+  }
+}

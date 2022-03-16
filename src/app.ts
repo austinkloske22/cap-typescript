@@ -11,7 +11,7 @@ export const application = async () => {
         handler: [__dirname + '/services/**/*.js', __dirname + '/handlers/**/*.js'],
     });
 
-    // await cds.connect('db');
+    await cds.connect('db');
     await cds
         .serve('all')
         .in(app)
